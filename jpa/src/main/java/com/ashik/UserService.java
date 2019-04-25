@@ -1,11 +1,10 @@
 package com.ashik;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 @Service
 public class UserService {
     @Autowired
@@ -16,13 +15,22 @@ public class UserService {
         userRepository.findAll().forEach(userRecords::add);
         return userRecords;
     }
-    public Optional<UserRecord> getUser(String id){
-        return userRepository.findOne(id);
+
+    public List<UserRecord> getUser(String id){
+        List<UserRecord>userRecords = new ArrayList<>();
+        userRepository.findById(id).ifPresent(userRecords::add);
+        return userRecords;
     }
+
+/*    public void getUser(String id){
+        userRepository.findById(id);
+    }
+*/
+
     public void addUser(UserRecord userRecord){
         userRepository.save(userRecord);
     }
     public void delete(String id){
-        userRepository.delete(id);
+        userRepository.deleteById(id);
     }
 }

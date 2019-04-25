@@ -2,6 +2,7 @@ package com.ashik;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
 @Entity
 public class UserRecord {
     @Id
