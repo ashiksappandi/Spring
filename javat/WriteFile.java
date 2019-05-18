@@ -5,7 +5,7 @@ public class WriteFile{
 		FileWriter out = null;
 
 		try{
-			out = new FileWriter("WriteFile1.txt");
+			out = new FileWriter("C:/WriteFile1.txt");
 			String data = "This is a test message";
 			out.write(data);
 		}
