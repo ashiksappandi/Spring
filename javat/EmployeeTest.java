@@ -10,6 +10,7 @@ public class EmployeeTest{
 		empOne.empDesignation("Engineer");
 		empOne.empSalary(1000);
 		empOne.printEmployee();
+		System.out.println(empOne.name);
 
 		empTwo.empAge(30);
 		empTwo.empDesignation("Senior Engineer");

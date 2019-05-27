@@ -6,10 +6,10 @@ public class Employee{
 	public String designation;
 	private double salary;
 
-	public static void main(String args[]) {
-		Employee h1 = new Employee();
-		System.out.println(h1.printSalary());
-	}
+//	public static void main(String args[]) {
+		//Employee h1 = new Employee();
+//		System.out.println(h1.printSalary());
+//	}
 
 	public Employee(String name){
 		this.name = name;
