@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact List - Spring Boot Web Application Example</title>
+    </head>
+    <body>
+        <h1>My Contact List - ThymeLeaf</h1>
+        <table border="1" cellpadding="10">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Country</th>
+            </tr>
+            <tr th:each="contact:${contacts}">
+                <td th:text="${contact.name}">Name</td>
+                <td th:text="${contact.email}">Email</td>
+                <td th:text="${contact.country}">Country</td>
+            </tr>
+        </table>
+    </body>
+</html>
