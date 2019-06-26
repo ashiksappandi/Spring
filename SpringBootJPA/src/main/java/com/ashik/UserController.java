@@ -27,4 +27,9 @@ public class UserController {
     public Optional<UserRecord> getUser(@PathVariable int id){
         return userService.getUser(id);
     }
+
+    @RequestMapping(value="/weather",method = RequestMethod.GET)
+    public String getWeather(){
+        return userService.getWeather();
+    }
 }

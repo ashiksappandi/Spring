@@ -5,6 +5,7 @@ package com.ashik;
  */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,5 +27,13 @@ public class UserService {
     }
     public void delete(String id){
         userRepository.deleteById(id);
+    }
+
+    public String getWeather() {
+        RestTemplate restTemplate = new RestTemplate();
+        //String result = restTemplate.getForObject("https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22", String.class);
+        String result = restTemplate.getForObject("http://api.openweathermap.org/data/2.5/weather?q=London&appid=ee27764189284846bb3f5021e1ea85e5", String.class);
+        System.out.println(result);
+        return result;
     }
 }

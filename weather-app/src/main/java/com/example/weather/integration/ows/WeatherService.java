@@ -1,11 +1,8 @@
 package com.example.weather.integration.ows;
 
-import java.net.URI;
-
 import com.example.weather.WeatherAppProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
@@ -15,9 +12,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriTemplate;
 
+import java.net.URI;
+
 @Service
 public class WeatherService {
 
+
+	private final RestTemplate restTemplate;
 	private static final String WEATHER_URL =
 			"http://api.openweathermap.org/data/2.5/weather?q={city},{country}&APPID={key}";
 
@@ -25,8 +26,6 @@ public class WeatherService {
 			"http://api.openweathermap.org/data/2.5/forecast?q={city},{country}&APPID={key}";
 
 	private static final Logger logger = LoggerFactory.getLogger(WeatherService.class);
-
-	private final RestTemplate restTemplate;
 
 	private final String apiKey;
 
