@@ -8,11 +8,10 @@ import org.springframework.web.client.RestTemplate;
  */
 @Service
 public class WeatherService {
-    public String getWeather(String city, String id, String URL) {
+    public Weather getWeather(String city, String id, String URL) {
         RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject(URL+"?q="+city+"&appid="+id, String.class);
+        Weather result = restTemplate.getForObject(URL+"?q="+city+"&appid="+id, Weather.class);
         System.out.println(result);
-        Weather weather = new Weather(city, "36");
         return result;
     }
 }

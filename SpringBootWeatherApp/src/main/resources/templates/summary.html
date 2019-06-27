@@ -1,12 +1,16 @@
-<html xmlns:th="https://thymeleaf.org">
-<table>
-    <tr>
-        <td><h4>City: </h4></td>
-        <td><h4 th:text="${weather.city}"></h4></td>
-    </tr>
-    <tr>
-        <td><h4>Temperature: </h4></td>
-        <td><h4 th:text="${weather.temp}"></h4></td>
-    </tr>
-</table>
+<!DOCTYPE html>
+<html lang="en" xmlns="www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/owfont-regular.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <title>Weather Report</title>
+</head>
+<body>
+<h1>Weather Report</h1>
+<div class="data_block" th:each="weather:${weatherList}">
+<p class="big" th:text="${weather.city}">City <span>°F</span>></p>
+<p class="medium" th:text="${weather.temp}">Temp <span>°F</span>></p>
+</div>
+</body>
 </html>

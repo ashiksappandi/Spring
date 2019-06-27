@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather List - Spring Boot Web Application Example</title>
+</head>
+<body>
+<h1>My Contact List - ThymeLeaf</h1>
+<table border="1" cellpadding="10">
+    <tr>
+        <th>City</th>
+        <th>Temp</th>
+    </tr>
+    <tr th:each="weather:${weathers}">
+        <td th:text="${weather.city}">City</td>
+        <td th:text="${weather.temp}">Temp</td>
+    </tr>
+</table>
+</body>
+</html>
