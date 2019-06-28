@@ -9,8 +9,8 @@
 <body>
 <h1>Weather Report</h1>
 <div class="data_block" th:each="weather:${weatherList}">
-<p class="big" th:text="${weather.city}">City <span>°F</span>></p>
-<p class="medium" th:text="${weather.temp}">Temp <span>°F</span>></p>
+<p class="big" th:text="${weather.city}">City</p>
+<p class="medium" th:text="${weather.temp}+@{${@environment.getProperty('app.weather.unitF')}}">Temp</p>
 </div>
 </body>
 </html>
