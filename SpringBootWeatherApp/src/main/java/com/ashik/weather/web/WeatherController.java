@@ -30,12 +30,8 @@ public class WeatherController {
     @Value("${app.weather.url}")
     private String appWeatherURL;
 
-    private WeatherService weatherService;
-
     @Autowired
-    public WeatherController(WeatherService weatherService) {
-        this.weatherService = weatherService;
-    }
+    private WeatherService weatherService;
 
     @RequestMapping(value = "/userCity", method = RequestMethod.POST)
     public ModelAndView userCity(@ModelAttribute Weather weather){

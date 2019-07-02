@@ -1,8 +1,12 @@
 package com.ashik.helloworld;
 
+import org.springframework.stereotype.Component;
+
+@Component("u1")
 public class User {
     String name;
     String email;
+
     public String getName() {
         return name;
     }
@@ -14,6 +18,10 @@ public class User {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void show(){
+        System.out.println(this.name);
     }
 
 }
