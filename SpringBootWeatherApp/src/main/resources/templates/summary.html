@@ -8,9 +8,24 @@
 </head>
 <body>
 <h1>Weather Report</h1>
-<div class="data_block" th:each="weather:${weatherList}">
-<p class="big" th:text="${weather.city}">City</p>
-<p class="medium" th:text="${weather.temp}+@{${@environment.getProperty('app.weather.unitF')}}">Temp</p>
-</div>
+    <div class="data_block" th:each="weather:${weatherList}">
+        <p class="big" th:text="${weather.city}">City</p>
+        <table border="2" cellpadding="10">
+            <tr>
+                <th>Temperature</th>
+                <th>Max Temperature</th>
+                <th>Min Temperature</th>
+                <th>Pressure</th>
+                <th>Humidity</th>
+            </tr>
+            <tr>
+                <td class="medium" th:text="${weather.tempC}+@{${@environment.getProperty('app.weather.tempUnitC')}}">Temp</td>
+                <td class="medium" th:text="${weather.tempMax}+@{${@environment.getProperty('app.weather.tempUnitC')}}">TempMax</td>
+                <td class="medium" th:text="${weather.tempMin}+@{${@environment.getProperty('app.weather.tempUnitC')}}">TempMin</td>
+                <td class="medium" th:text="${weather.pressure}+@{${@environment.getProperty('app.weather.pressureUnit')}}">Pressure</td>
+                <td class="medium" th:text="${weather.humidity}+@{${@environment.getProperty('app.weather.humidityUnit')}}">Humidity</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

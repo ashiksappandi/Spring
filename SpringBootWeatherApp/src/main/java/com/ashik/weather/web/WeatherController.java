@@ -37,11 +37,19 @@ public class WeatherController {
         this.weatherService = weatherService;
     }
 
+    @RequestMapping(value = "/userCity", method = RequestMethod.POST)
+    public ModelAndView userCity(@ModelAttribute Weather weather){
+        Weather result = weatherService.getWeather(weather.getCity(), appWeatherApiKey, appWeatherURL);
+        ModelAndView modelAndView = new ModelAndView("summary");
+        modelAndView.addObject("weatherList", result);
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/weather", method = RequestMethod.GET)
     public ModelAndView weather(@ModelAttribute Weather weather) {
         Weather result = weatherService.getWeather(appWeatherCity, appWeatherApiKey, appWeatherURL);
         ModelAndView modelAndView = new ModelAndView("summary");
-        modelAndView.addObject("weather", result);
+        modelAndView.addObject("weatherList", result);
         return modelAndView;
     }
 

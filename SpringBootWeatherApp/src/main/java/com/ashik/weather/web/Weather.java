@@ -17,9 +17,26 @@ public class Weather {
 
     private Double temp;
 
+    private float tempC;
+
+    private float tempMin;
+
+    private float tempMax;
+
+    private int pressure;
+
+    private int humidity;
+
     @JsonProperty("main")
-    private void unpackNested(Map<String,Object> main) {
-        this.temp = (Double) main.get("temp");
+    private void tempObj(Map<String,Object> tempData) {
+        this.temp = (Double) tempData.get("temp");
+        this.tempC = (float) (this.temp - 273.15);
+        double tempMax_temp = (Double)tempData.get("temp_max");
+        this.tempMax = (float) (tempMax_temp - 273.15);
+        double tempMin_temp = (Double)tempData.get("temp_min");
+        this.tempMin = (float) (tempMin_temp - 273.15);
+        this.pressure = (int) tempData.get("pressure");
+        this.humidity = (int) tempData.get("humidity");
     }
 
     public Weather(){
@@ -29,10 +46,14 @@ public class Weather {
         this.city = city;
     }
 
-
-    public Weather(String city, Double temp) {
+    public Weather(String city, Double temp, float tempC, float tempMin, float tempMax, int pressure, int humidity) {
         this.city = city;
         this.temp = temp;
+        this.tempC = tempC;
+        this.tempMin = tempMin;
+        this.tempMax = tempMax;
+        this.pressure = pressure;
+        this.humidity = humidity;
     }
 
     public String getCity() {
@@ -49,5 +70,45 @@ public class Weather {
 
     public void setTemp(Double temp) {
         this.temp = temp;
+    }
+
+    public float getTempC() {
+        return tempC;
+    }
+
+    public void setTempC(float tempC) {
+        this.tempC = tempC;
+    }
+
+    public float getTempMin() {
+        return tempMin;
+    }
+
+    public void setTempMin(float tempMin) {
+        this.tempMin = tempMin;
+    }
+
+    public float getTempMax() {
+        return tempMax;
+    }
+
+    public void setTempMax(float tempMax) {
+        this.tempMax = tempMax;
+    }
+
+    public int getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(int pressure) {
+        this.pressure = pressure;
+    }
+
+    public int getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(int humidity) {
+        this.humidity = humidity;
     }
 }

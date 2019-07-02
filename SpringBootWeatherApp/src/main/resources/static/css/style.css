@@ -26,3 +26,7 @@ h1{
 .medium{
     font-size: 1.7em;
 }
+
+th, td{
+    padding: 0px 10px;
+}
